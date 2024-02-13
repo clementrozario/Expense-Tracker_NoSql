@@ -1,5 +1,4 @@
 const path = require('path');
-const fs = require('fs');
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -9,7 +8,7 @@ const User = require('./models/userModel');
 const Expense = require('./models/expenseModel');
 const Order = require('./models/orderModel');
 const Forgotpassword = require('./models/passwordResetModel');
-// const Url = require('./models/downloadUrlModel');
+const Url = require('./models/downloadUrlModel');
 
 const userRoutes = require('./routes/userRoutes');
 const expenseRoutes = require('./routes/expenseRoutes');
@@ -35,7 +34,6 @@ mongoose.connect(process.env.MONGO_URI)
   });
 
 
-// Serve static files from the 'view' directory
 const staticPath = path.resolve('./views');
 app.use(express.static(staticPath));
 

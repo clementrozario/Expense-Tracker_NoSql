@@ -95,8 +95,6 @@ const getexpenses = async (req, res) => {
 const deleteexpense = async (req, res) => {
     const expenseId = req.params.expenseid;
 
-    console.log("Expense ID:", expenseId); // Log the expense ID
-
     if (!expenseId || !mongoose.Types.ObjectId.isValid(expenseId)) {
         return res.status(400).json({ success: false, message: 'Invalid expense ID' });
     }

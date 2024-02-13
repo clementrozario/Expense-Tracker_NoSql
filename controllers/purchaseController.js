@@ -16,7 +16,7 @@ const purchasepremium = async (req, res) => {
             }
             Order.create({
                 paymentId: order.id,
-                orderId: order.id, // Use the order ID as it is unique
+                orderId: order.id, 
                 status: 'PENDING',
                 userId: req.user.id,
             }).then(() => {
@@ -40,7 +40,7 @@ const updateTransactionStatus = async (req, res) => {
         const order = await Order.findOne({ orderId: order_id });
         
         const promise1 = order.updateOne({ paymentId: payment_id, status: 'SUCCESSFUL' });
-        const promise2 = req.user.updateOne({ isPremiumUser: true });  // Correct field name here
+        const promise2 = req.user.updateOne({ isPremiumUser: true });  
         
         Promise.all([promise1, promise2]).then(() => {
             return res.status(202).json({

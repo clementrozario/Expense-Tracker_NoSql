@@ -76,7 +76,7 @@ function addNewExpensetoUI(expense){
     const parentElement = document.getElementById('listOfExpenses');
     const expenseElemId = `expense-${expense.id}`;
 
-    console.log('Expense ID:', expense.id);
+    // console.log('Expense ID:', expense.id);
 
     parentElement.innerHTML += `
         <li id=${expenseElemId}>
@@ -143,9 +143,9 @@ function checkUserPremiumStatus() {
     const token = localStorage.getItem('token');
     if (token) {
         const decodeToken = parseJwt(token);
-        return decodeToken.isPremiumuser; // Assuming isPremiumuser is a boolean indicating premium status
+        return decodeToken.isPremiumuser; 
     }
-    return false; // Return false if no token is found (user is not authenticated)
+    return false; 
 }
 
 // Enable or disable the download button based on user's premium status

@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     unique: true,
   },
   password: String,
-  isPremiumUser: {  // Correct field name here
+  isPremiumUser: {  
     type: Boolean,
     default: false,
   },
